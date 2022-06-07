@@ -17,9 +17,10 @@ corsSettings = {
   ],
   origin: [
     "http://localhost:3000",
-    "https://brain-training-website.sigmalabs.co.uk/",
+    "https://brain-training-website.sigmalabs.co.uk",
   ],
   credentials: true,
+  methods: ["GET", "POST"],
 };
 
 app.use(cors(corsSettings));
@@ -27,13 +28,7 @@ app.use(cors(corsSettings));
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: {
-    origin: [
-      "http://localhost:3000",
-      "https://brain-training-website.sigmalabs.co.uk/",
-    ],
-    methods: ["GET", "POST"],
-  },
+  cors: corsSettings,
 });
 
 io.on("connection", (socket) => {
