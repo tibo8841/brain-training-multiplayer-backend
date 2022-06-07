@@ -8,6 +8,13 @@ dotenv.config();
 let PORT = process.env.PORT || 3001;
 
 corsSettings = {
+  allowedHeaders: [
+    "Authorization",
+    "Content-Type",
+    "Accept",
+    "Origin",
+    "User-Agent",
+  ],
   origin: [
     "http://localhost:3000",
     "https://brain-training-website.sigmalabs.co.uk/",
