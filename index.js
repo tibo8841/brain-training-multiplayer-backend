@@ -41,6 +41,10 @@ io.on("connection", (socket) => {
     );
   });
 
+  socket.on("send_play", (data) => {
+    socket.broadcast.emit("receive_play", data);
+  });
+
   socket.on("send_message", (data) => {
     console.log(data);
     socket.broadcast.emit("receive_message", data);
