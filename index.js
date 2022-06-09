@@ -39,6 +39,7 @@ io.on("connection", (socket) => {
     console.log(
       `User ${data.username} with ID: ${socket.id} joined room: ${data.room}`
     );
+    socket.broadcast.emit("join_room", data);
   });
 
   socket.on("send_play", (data) => {
